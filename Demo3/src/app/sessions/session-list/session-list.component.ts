@@ -7,7 +7,6 @@ import { Session } from "../shared/session.model";
 import { SessionService } from "../shared/session.service";
 
 @Component({
-    moduleId: module.id,
     styleUrls: ["session-list.component.css"],
     templateUrl: "session-list.component.html",
 })

@@ -8,7 +8,6 @@ import { Session } from "../shared/session.model";
 import { SessionService } from "../shared/session.service";
 
 @Component({
-    moduleId: module.id,
     templateUrl: "session-detail.component.html",
 })
 export class SessionDetailComponent implements OnInit, OnDestroy {
