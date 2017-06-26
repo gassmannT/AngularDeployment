@@ -8,7 +8,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "launch": "http-serve dist --gzip=true",
+    "build-dev": "ng build --output-path=dist-dev --sourcemap=true --output-hashing=false",
+    "build-prod": "ng build --prod --output-path=dist-prod --sourcemap=true --output-hashing=false",
+    "sme-dev": "source-map-explorer dist-dev/vendor.bundle.js",
+    "sme-prod": "source-map-explorer dist-prod/vendor.bundle.js",
+    "sme": "yarn sme-dev && yarn sme-prod"
   },
   "private": true,
   "dependencies": {
