@@ -13,7 +13,7 @@ a, a:hover, a:focus {
 }
 
 #pageBanner {
-    background-image: url("https://www.trivadis.com/sites/default/files/slider/background/header_trivadis-slideshare_1920x642px_0.jpg");
+    background-image: url("header_trivadis-slideshare_1920x642px_0.jpg");
     height: 190px;
     background-size:     cover;   
     background-repeat:   no-repeat;
