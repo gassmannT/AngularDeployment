@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">{{pageTitle}}</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table session-table" *ngIf="list | async; else loading; let list">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>City</th>
+                        <th>Rating</th>
+                        <th>Reason</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="session" *ngFor="let item of list">
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.city }}</td>
+                        <td>
+                            <tt-star [rating]="item.rating"></tt-star>
+                        </td>
+                        <td>
+                            <span *ngIf="item.reason; else noReason">
+                            {{ item.reason | truncate : 10 : '.'}}
+                            </span>
+                            <ng-template #noReason>-no reason-</ng-template>
+                        </td>
+                        <td>
+                            <a [routerLink]="['/edit', item.id]">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ng-template #loading>
+                List is loading...
+            </ng-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{
+  "name": "angular-workshop",
+  "description": "The ultimate Angular workshop at the Trivadis TechEvent spring 2017",
+  "version": "1.0.0",
+  "author": "Thomas Bandixen & Thomas Gassmann",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gassmannT/AngularWorkshop"
+  },
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
+    "lite": "lite-server",
+    "pree2e": "webdriver-manager update",
+    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
+    "test-once": "tsc && karma start karma.conf.js --single-run",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "4.0.0-rc.5",
+    "@angular/compiler": "4.0.0-rc.5",
+    "@angular/core": "4.0.0-rc.5",
+    "@angular/forms": "4.0.0-rc.5",
+    "@angular/http": "4.0.0-rc.5",
+    "@angular/platform-browser": "4.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "4.0.0-rc.5",
+    "@angular/router": "4.0.0-rc.5",
+    "angular-in-memory-web-api": "0.3.1",
+    "bootstrap": "3.3.7",
+    "core-js": "2.4.1",
+    "reflect-metadata": "0.1.10",
+    "rxjs": "5.2.0",
+    "systemjs": "0.20.10",
+    "zone.js": "0.8.4"
+  },
+  "devDependencies": {
+    "@types/jasmine": "2.5.46",
+    "@types/node": "7.0.8",
+    "concurrently": "3.4.0",
+    "http-server": "0.9.0",
+    "jasmine-core": "2.5.2",
+    "jasmine-spec-reporter": "3.2.0",
+    "karma": "1.5.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-cli": "1.0.1",
+    "karma-jasmine": "1.1.0",
+    "karma-jasmine-html-reporter": "0.2.2",
+    "karma-phantomjs-launcher": "1.0.4",
+    "lite-server": "2.3.0",
+    "lodash": "4.17.4",
+    "protractor": "5.1.1",
+    "typescript": "2.2.1"
+  }
+}
