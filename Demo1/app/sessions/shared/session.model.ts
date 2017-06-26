@@ -8,16 +8,16 @@ export class Session implements Serializable, Identifiable {
         public title: string,
         public city: string,
         public rating?: number,
-        public reason?: string
+        public reason?: string,
     ) { }
 
-    public serialize(): Object {
+    public serialize(): object {
         return {
             id: this.id,
             title: this.title,
             city: this.city,
             rating: this.rating,
-            reason: this.reason
+            reason: this.reason,
         };
     }
 

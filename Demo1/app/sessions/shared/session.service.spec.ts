@@ -1,9 +1,9 @@
-import { Session } from './session.model';
-import { MockBackend, MockConnection } from '@angular/http/testing';
-import { async, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
-import { HttpModule, XHRBackend, Response, ResponseOptions } from "@angular/http";
+import { async, fakeAsync, inject, TestBed, tick } from "@angular/core/testing";
+import { HttpModule, Response, ResponseOptions, XHRBackend } from "@angular/http";
+import { MockBackend, MockConnection } from "@angular/http/testing";
+import { Session } from "./session.model";
 
-import { SessionService } from './session.service';
+import { SessionService } from "./session.service";
 
 describe("SessionService", () => {
     let sessionService: SessionService;
@@ -12,7 +12,7 @@ describe("SessionService", () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpModule],
-            providers: [SessionService, MockBackend, { provide: XHRBackend, useClass: MockBackend }]
+            providers: [SessionService, MockBackend, { provide: XHRBackend, useClass: MockBackend }],
         });
     });
 
@@ -27,12 +27,12 @@ describe("SessionService", () => {
 
             c.mockRespond(new Response(new ResponseOptions({
                 body: {
-                    data: { id: 42, title: "SessionTitle", room: "Zürich", rating: 4 }
-                }
+                    data: { id: 42, title: "SessionTitle", room: "Zürich", rating: 4 },
+                },
             })));
         });
 
-        sessionService.getById(42).subscribe(session => {
+        sessionService.getById(42).subscribe((session) => {
             mockBackend.verifyNoPendingRequests();
             expect(session instanceof Session).toBeTruthy();
             expect(session.title).toBe("SessionTitle");
@@ -46,13 +46,13 @@ describe("SessionService", () => {
             c.mockRespond(new Response(new ResponseOptions({
                 body: {
                     data: [
-                        { id: 42, title: "SessionTitle", room: "Zürich", rating: 4 }
-                    ]
-                }
+                        { id: 42, title: "SessionTitle", room: "Zürich", rating: 4 },
+                    ],
+                },
             })));
         });
 
-        sessionService.get().subscribe(sessions => {
+        sessionService.get().subscribe((sessions) => {
             mockBackend.verifyNoPendingRequests();
             expect(sessions[0] instanceof Session).toBeTruthy();
             expect(sessions[0].title).toBe("SessionTitle");

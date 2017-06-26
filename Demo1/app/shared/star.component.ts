@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: 'tt-star',
-    templateUrl: 'star.component.html',
-    styleUrls: ['star.component.css']
+    selector: "tt-star",
+    templateUrl: "star.component.html",
+    styleUrls: ["star.component.css"],
 })
 export class StarComponent implements OnChanges {
     @Input()

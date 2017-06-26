@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: 'app',
-    templateUrl: 'app.component.html'
+    selector: "app",
+    templateUrl: "app.component.html",
 })
 export class AppComponent implements OnInit {
     public pageTitle: string;
@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.pageTitle = "Session rating app";
-        
+
     }
 }

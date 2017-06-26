@@ -2,26 +2,26 @@ import { Http } from "@angular/http";
 
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
-import { Serializable } from "./serializable";
 import { Identifiable } from "./identifiable";
+import { Serializable } from "./serializable";
 
 export abstract class BaseService<TModel extends Serializable & Identifiable> {
     constructor(
         protected endpointName: string,
-        protected http: Http
+        protected http: Http,
     ) { }
 
-    public get(): Observable<Array<TModel>> {
+    public get(): Observable<TModel[]> {
         return this.http.get(this.getEndpoint(this.endpointName))
-            .flatMap(response => Observable.from(response.json().data || []))
-            .map(json => this.deserialize(json))
+            .flatMap((response) => Observable.from(response.json().data || []))
+            .map((json) => this.deserialize(json))
             .toArray();
     }
 
     public getById(id: number): Observable<TModel> {
         return this.http.get(this.getEndpoint(`${this.endpointName}/${id}`))
-            .map(response => response.json().data || {})
-            .map(json => this.deserialize(json));
+            .map((response) => response.json().data || {})
+            .map((json) => this.deserialize(json));
     }
 
     public create(model: TModel): Observable<any> {
