@@ -13,6 +13,6 @@ describe("Session update", () => {
 
     // it("should show the first session detail page", () => { });
 
-    // it("should update the first session firstname", () => { });
+    // it("should update the first session title", () => { });
 
 });
