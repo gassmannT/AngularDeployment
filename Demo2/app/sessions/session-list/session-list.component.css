@@ -1,0 +1,3 @@
+.session-table tbody tr:nth-child(odd)  {
+    background-color: #CCC;
+}

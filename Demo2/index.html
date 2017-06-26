@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<base href="/">	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Session Rating App</title>
+	<link rel="shortcut icon" href="https://news.trivadis.com/hubfs/Trivadis-Feb2016/favicon.ico?t=1489665795894">
+
+
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	
+	<!-- Polyfill(s) for older browsers -->
+	<script src="node_modules/core-js/client/shim.min.js"></script> <!-- ECMAScript 5 compatibility -->
+	<script src="node_modules/zone.js/dist/zone.js"></script> <!-- Execution Context, Angular use it for change detection and databinding -->
+	<script src="node_modules/reflect-metadata/Reflect.js"></script> <!-- Reading decoratior metadata -->
+	<script src="node_modules/systemjs/dist/system.src.js"></script> <!-- Modul loader -->
+
+	<script src="systemjs.config.js"></script>
+	<script defer>
+		System.import('app').catch(function (err) { console.error(err); });
+	</script>
+
+</head>
+
+<body>
+	<app>Please wait, the app is being loaded...</app>
+</body>
+
+</html>
