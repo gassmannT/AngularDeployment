@@ -1,0 +1,8 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "window.zoomLevel": 3,
+    "files.exclude": {
+        "**/dist-dev": true,
+        "**/dist-prod": true
+    }
+}

@@ -1,0 +1,49 @@
+<div class="panel panel-primary" *ngIf="session; else loading; let session">
+    <div class="panel-heading">Session details: {{session.title}}</div>
+    <div class="panel-body">
+        <form #form="ngForm" (ngSubmit)="onSave(form)" novalidate>
+            <div *ngIf="session">
+                <div class="form-group">
+                    <label for="inputTitle">Title: </label>
+                    <input id="inputTitle" name="inputTitle" class="form-control" type="text" [(ngModel)]="session.title" required #inputTitle="ngModel"
+                    />
+                    <div *ngIf="inputTitle.errors && (inputTitle.dirty || inputTitle.touched)" class="alert alert-danger">
+                        <div [hidden]="!inputTitle.errors.required">
+                            Title is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputCity">City: </label>
+                    <input id="inputCity" name="inputCity" class="form-control" type="text" [(ngModel)]="session.city" maxlength="24" minlength="3"
+                        required #inputCity="ngModel" />
+
+                    <div *ngIf="inputCity.errors && (inputCity.dirty || inputCity.touched)" class="alert alert-danger">
+                        <div [hidden]="!inputCity.errors.required">
+                            City is required
+                        </div>
+                        <div [hidden]="!inputCity.errors.minlength">
+                            City must be at least 3 characters long.
+                        </div>
+                        <div [hidden]="!inputCity.errors.maxlength">
+                            City cannot be more than 24 characters long.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputRating">Rating: </label>
+                    <input id="inputRating" name="inputRating" class="form-control" type="text" [(ngModel)]="session.rating" />
+                </div>
+                <div class="form-group" *ngIf="session.rating > 0 && session.rating < 4">
+                    <label for="inputReason">Reason: </label>
+                    <textarea id="inputReason" name="inputReason" class="form-control" [(ngModel)]="session.reason" [required]="session.rating < 4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
+                <button type="button" class="btn" (click)="onBack()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+<ng-template #loading>
+    Session is loading...
+</ng-template>
