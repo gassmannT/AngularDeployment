@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { CustomPreloader } from './core/custom-preloader.service';
+
 const routes: Routes = [
-  { path: "participants", loadChildren: "app/participant/participant.module#ParticipantModule" },
+  { path: "participants", data: { preload: true }, loadChildren: "app/participant/participant.module#ParticipantModule" },
   { path: "sessions", loadChildren: "app/session/session.module#SessionModule" },
 
   { path: "", redirectTo: "/sessions", pathMatch: "full" }, // default
@@ -10,7 +12,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloader })],
   exports: [RouterModule],
+  providers: [CustomPreloader]
 })
 export class AppRoutingModule { }
